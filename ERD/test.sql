@@ -1,0 +1,9 @@
+drop table if exists company_users;
+drop table if exists job;
+drop table if exists p_user;
+drop table if exists p_user_companies;
+drop table if exists star;
+drop table if exists vacation;
+drop table if exists Authority;
+drop table if exists Company;
+drop table if exists Experience;

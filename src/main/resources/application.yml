@@ -8,17 +8,17 @@ spring:
     ansi:
       enabled: always
 
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/projectpaykeeper?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
-#    username: paykeeper
-#    password: 1234
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/db907?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
-    username: user907
+    url: jdbc:mysql://localhost:3306/projectpaykeeper?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: paykeeper
     password: 1234
+
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/db907?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+#    username: user907
+#    password: 1234
 
   jpa:
     show-sql: true
