@@ -26,11 +26,18 @@ spring:
       hibernate:
         format_sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   mvc:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+    static-path-pattern: /resources/**
+
+  web:
+    resources:
+      static-locations: classpath:/resources/
+
+
 
