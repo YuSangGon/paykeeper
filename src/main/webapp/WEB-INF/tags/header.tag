@@ -3,13 +3,13 @@
   User: yusan
   Date: 2024-01-22
   Time: 오후 2:20
-  To change this template use File | Settings | File Templates.
+  This is for PayKeepr Website's common header
 --%>
 <%@ tag pageEncoding="UTF-8" language="java" description="header" body-content="empty" %>
 <header>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container-fluid mx-sm-3 mx-lg-auto px-0" style="max-width: 992px">
-            <a class="navbar-brand fs-3" href="/">Navbar</a>
+        <div class="container-fluid mx-3 mx-lg-auto px-0" style="max-width: 992px">
+            <a class="navbar-brand fs-3" href="/">PayKeeper</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
