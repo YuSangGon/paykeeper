@@ -9,6 +9,9 @@ $(function() {
             center: 'title',
             right: 'today prev next',
         },
+        footerToolbar : {
+          right: 'delete',
+        },
         customButtons: {
             list: {  // 알바 장소 목록 리스트
                 text: '알바 목록',
@@ -16,6 +19,12 @@ $(function() {
             },
             add: {
                 text: '알바 추가',
+                click: function() {
+
+                }
+            },
+            delete: {
+                text: '그만 두기',
                 click: function() {
 
                 }

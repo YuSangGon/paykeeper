@@ -18,27 +18,7 @@
     <%-- Body --%>
     <main class="container-fluid">
 
-        <%-- Employee & Employer Rank --%>
-        <section class="d-lg-flex justify-lg-content-between mx-auto mt-5" style="max-width: 992px">
-            <div class="card border-success mb-3 me-lg-1">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h4 class="card-title">Success card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-
-            <div class="card border-info mb-3 ms-lg-1">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h4 class="card-title">Info card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </section>
-        <%-- Employee & Employer Rank --%>
-
-        <%-- Map : 구인 중인 사장, 알바 --%>
+        <%-- 개인 프로필 : 랭크, 유저 정보 --%>
         <section class="mx-auto mt-5" style="max-width: 992px">
             <div class="card" style="height: 300px">
                 <div class="card-body">
@@ -51,6 +31,11 @@
             </div>
         </section>
         <%-- Map --%>
+
+        <%-- 자신의 리뷰 보기 --%>
+
+
+        <%-- 리뷰를 작성할 수 있는 알바생 목록 또는 사장 목록 : 계약 마감 기준 3일 이내 작성 가능 --%>
 
     </main>
 
