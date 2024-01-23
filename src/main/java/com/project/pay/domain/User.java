@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -32,9 +33,19 @@ public class User extends BaseEntity{   // 사용자 정보를 위한 테이블
 
     @Column(nullable = false)
     private String email;  // 이메일을 아이디로 사용할 것임
+    
+    // 알바만 설정 가능
+    // 구직 중인지 아닌지를 명시
+    @ColumnDefault(value = "false")
+    private String state;
 
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
+
+    @OneToOne
+    @ToString.Exclude
+    @JoinColumn(name = "geolocation_id")
+    private Geolocation geolocation;
 
     // User : Job = 1:N
     // 유저의 근무 시간 리스트

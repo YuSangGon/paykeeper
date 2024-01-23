@@ -3,6 +3,7 @@ package com.project.pay.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -31,6 +32,15 @@ public class Company {
 
     @Column(insertable = false, updatable = false)
     private LocalDateTime regDate;
+
+    // 사장이 설정 가능
+    // 알바를 구하고 있는지 => 구인 중인지 아닌지
+    @ColumnDefault(value = "true")
+    private boolean state;
+
+    @OneToOne
+    @JoinColumn(name = "company_id")
+    private Geolocation geolocation;
 
     // User : Company = N:M
     // 해당 방에 포함된 알바, 사장 목록을 알기 위함
