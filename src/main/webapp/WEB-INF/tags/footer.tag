@@ -9,10 +9,10 @@
 <footer class="mt-5">
 
     <nav class="bg-primary" data-bs-theme="dark">
-        <div class="text-light" style="max-width: 992px">
+        <div class="text-light container-fluid" style="max-width: 992px">
 
             <%-- SNS ICON --%>
-            <div class="text-center fs-4 mb-1">
+            <div class="text-center fs-3">
                 <i class="fa-brands fa-instagram"></i>&nbsp;
                 <i class="fa-brands fa-google"></i>&nbsp;
                 <a class="text-light" href="https://github.com/YuSangGon/paykeeper"><i class="fa-brands fa-github"></i></a>&nbsp;

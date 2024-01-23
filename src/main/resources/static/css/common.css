@@ -3,3 +3,9 @@ header {
     top : 0;
     z-index: 10;
 }
+
+main {
+    height: auto;
+    min-height: 800px;
+}
+

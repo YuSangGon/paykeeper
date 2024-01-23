@@ -15,24 +15,17 @@
             </button>
             <div class="collapse navbar-collapse fs-6 justify-content-end" id="navbarColor01">
                 <ul class="navbar-nav me-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                    <li class="nav-item">  <%-- 사장이냐 알바냐에 따라 링크 다르게 --%>
+                        <a class="nav-link" href="#">Calendar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="#">Rank</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="#">Profile</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login/Logout</a>
                     </li>
                 </ul>
             </div>

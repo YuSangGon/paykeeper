@@ -3,7 +3,7 @@
   User: yusan
   Date: 2024-01-22
   Time: 오후 2:06
-  PayKeeper Website's Main Page
+  PayKeeper Website's My Page
 --%>
 <%@ include file="common/importTag.jsp" %>
 <html lang="ko">
@@ -14,14 +14,6 @@
 <body>
 
     <common:header />
-
-    <%-- Banner --%>
-    <section class="container-fluid">
-        <div class="card mx-auto mt-3" style="max-width: 992px; height: 300px">
-
-        </div>
-    </section>
-
 
     <%-- Body --%>
     <main class="container-fluid">
