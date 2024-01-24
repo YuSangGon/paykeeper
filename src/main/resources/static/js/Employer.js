@@ -9,9 +9,6 @@ $(function () {
             center: 'title',
             right: 'today prev next',
         },
-        footerToolbar: {
-            right: 'paid'
-        },
         customButtons: {
             list: {  // 회사 목록
                 text: '알바 목록',
@@ -21,12 +18,6 @@ $(function () {
                 text: '가게 등록',
                 click: addCompany,
             },
-            paid: {
-                text: '지급 하기',
-                click: function () {
-
-                }
-            }
         },
         initialView: 'dayGridMonth',
         dateClick: function (info) {

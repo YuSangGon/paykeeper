@@ -10,6 +10,7 @@
 <html lang="ko">
 <head>
     <%@ include file="common/head.jsp"%>
+    <%@ include file="common/api.jsp"%>
 
     <%-- Full Calendar --%>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
@@ -71,10 +72,10 @@
 
     <%-- Modal For Company List--%>
     <div class="modal fade" id="inputModal">
-        <div class="modal-dialog" role="list" style="top: 20%">
+        <div class="modal-dialog" role="list" style="top: 10%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Today's Work</h5>
+                    <h5 class="modal-title">알바 시간 등록</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
@@ -83,21 +84,34 @@
                     <form>
                         <fieldset>
                             <div class="form-group">
-                                <label for="startAt" class="form-label mt-4">Start Time</label>
+                                <label for="startAt" class="form-label mt-4">시작 시간</label>
                                 <input type="date" class="form-control" id="startAt" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="endAt" class="form-label mt-4">Finish Time</label>
+                                <label for="endAt" class="form-label mt-4">끝난 시간</label>
                                 <input type="date" class="form-control" id="endAt" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label class="form-label mt-4">Pay</label>
+                                <label class="form-label mt-4">시급<small>현재 최저 시급 : 9780</small></label>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text">Per Hour</span>
-                                        <input type="text" class="form-control"
+                                        <span class="input-group-text">시간 당</span>
+                                        <input type="number" id="perPay" class="form-control"
                                                aria-label="Amount (to the nearest dollar)">
-                                        <span class="input-group-text">&#8361;</span>
+                                        <span class="input-group-text">원</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label mt-4">오늘의 일당</label>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">총</span>
+                                            <input type="text" id="totalPay" class="form-control"
+                                                   aria-label="Total Payment" disabled>
+                                            <span class="input-group-text">원</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

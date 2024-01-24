@@ -3,7 +3,7 @@
   User: yusan
   Date: 2024-01-23
   Time: 오후 2:06
-  PayKeeper Website's Employee Page
+  PayKeeper Website's Employer Page
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/importTag.jsp" %>
@@ -21,7 +21,7 @@
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/Employer.js"></script>
 
-    <title>타이틀</title>
+    <title>사장</title>
 </head>
 <body>
 
@@ -47,7 +47,7 @@
         <div class="modal-dialog" role="list" style="top: 20%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Employee list</h5>
+                    <h5>매장별 알바 목록</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
@@ -56,7 +56,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <div class="list-group" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action disabled">Company List</a>
+                                <a class="list-group-item list-group-item-action disabled">매장 리스트</a>
                                 <a class="list-group-item list-group-item-action active" id="company1"
                                    data-bs-toggle="list" href="#company1-list" role="tab" aria-controls="company1">Company1</a>
                                 <a class="list-group-item list-group-item-action" id="company2" data-bs-toggle="list"
@@ -65,13 +65,14 @@
                                    href="#company3-list" role="tab" aria-controls="company3">Company3</a>
                             </div>
                         </div>
+
                         <div class="col-12 col-lg-6 mt-3 mt-lg-0">
                             <div class="tab-content" id="employee-list">
                                 <div class="tab-pane fade show active" id="company1-list" role="tabpanel"
                                      aria-labelledby="company1">
                                     <div class="list-group">
-                                        <div class="list-group-item list-group-item-action disabled">
-                                            Company1
+                                        <div class="list-group-item list-group-item-action active">
+                                            전체
                                         </div>
                                         <div class="list-group-item list-group-item-action">
                                             Employee 1
@@ -88,8 +89,8 @@
                                 <div class="tab-pane fade" id="company2-list" role="tabpanel"
                                      aria-labelledby="company2">
                                     <div class="list-group">
-                                        <div class="list-group-item list-group-item-action disabled">
-                                            Company2
+                                        <div class="list-group-item list-group-item-action active">
+                                            전체
                                         </div>
                                         <div class="list-group-item list-group-item-action">
                                             Employee 4
@@ -106,8 +107,8 @@
                                 <div class="tab-pane fade" id="company3-list" role="tabpanel"
                                      aria-labelledby="company3">
                                     <div class="list-group">
-                                        <div class="list-group-item list-group-item-action disabled">
-                                            Company3
+                                        <div class="list-group-item list-group-item-action active">
+                                            전체
                                         </div>
                                         <div class="list-group-item list-group-item-action">
                                             Employee 7
@@ -137,16 +138,41 @@
         <div class="modal-dialog" role="list" style="top: 20%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Today's Work</h5>
+                    <h5 class="modal-title">알바 근무 목록</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
                 <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">이름</th>
+                            <th scope="col">시간</th>
+                            <th scope="col">총 알바비</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">홍길동</th>
+                            <td>4시간(11:00~15:00)</td>
+                            <td>36,000 원</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">이순신</th>
+                            <td>4시간(11:00~15:00)</td>
+                            <td>36,000 원</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">김구</th>
+                            <td>4시간(11:00~15:00)</td>
+                            <td>36,000 원</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td colspan="4"> 총 108,000 원 </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -172,7 +198,7 @@
                         <fieldset>
                             <div class="form-group">
                                 <label for="name" class="form-label fs-4">Name</label>
-                                <input type="text" class="form-control" id="name" autocomplete="off">
+                                <input type="text" class="form-control" id="name" autocomplete="off" placeholder="매장 이름을 입력하세요.">
                             </div>
                             <div class="form-group">
                                 <div class="form-label mt-3 fs-4">Frequency(Per Month)</div>
@@ -215,10 +241,10 @@
                             <div class="form-group">
                                 <div class="form-label mt-3 fs-4">Location</div>
                                 <label for="address" class="form-label fs-5">Address &nbsp;&nbsp;<button type="button" id="addressBtn" class="btn btn-secondary fs-6">Search</button></label>
-                                <input type="text" class="form-control" id="address" autocomplete="off">
+                                <input type="text" class="form-control" id="address" autocomplete="off" placeholder="도로명 주소를 입력하세요.">
 
                                 <label for="detailAddress" class="form-label fs-5">Detailed Address</label>
-                                <input type="text" class="form-control" id="detailAddress" autocomplete="off">
+                                <input type="text" class="form-control" id="detailAddress" autocomplete="off" placeholder="상세 주소를 입력하세요.">
                             </div>
                         </fieldset>
                     </form>

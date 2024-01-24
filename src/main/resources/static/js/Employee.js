@@ -38,6 +38,17 @@ $(function() {
 
     calendar.render();
 
+    $('#perPay').off().on("propertychange change keyup paste input",function() {
+        const start = $('#startAt').val();
+        const end = $('#endAt').val();
+
+        if($(this).val() === '') {
+            $('#totalPay').val('');
+        } else {
+            $('#totalPay').val(`4 * ${$(this).val()} = ${4 * Number($(this).val())}`)
+        }
+    })
+
 });
 
 const listUp = () => {
