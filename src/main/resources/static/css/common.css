@@ -9,3 +9,6 @@ main {
     min-height: 800px;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}

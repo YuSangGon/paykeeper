@@ -42,11 +42,6 @@ public class User extends BaseEntity{   // 사용자 정보를 위한 테이블
     @Enumerated(value = EnumType.STRING)
     private Gender gender;
 
-    @OneToOne
-    @ToString.Exclude
-    @JoinColumn(name = "geolocation_id")
-    private Geolocation geolocation;
-
     // User : Job = 1:N
     // 유저의 근무 시간 리스트
     @OneToMany

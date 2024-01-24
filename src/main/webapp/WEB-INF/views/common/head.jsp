@@ -5,7 +5,7 @@
   Time: 오후 12:58
   Common Script/CSS FIle
 --%>
-<%--<meta charset="utf-8">--%>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <%-- Bootstrap & Bootswatch --%>
@@ -16,7 +16,7 @@
 <script crossorigin="anonymous" src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 
 <%-- JQuery --%>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <%-- Impoert Other CSS or JS --%>
 <link rel="stylesheet" href="/css/common.css">

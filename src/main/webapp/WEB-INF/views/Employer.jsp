@@ -5,18 +5,23 @@
   Time: 오후 2:06
   PayKeeper Website's Employee Page
 --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/importTag.jsp" %>
 <html lang="ko">
 <head>
-    <%@ include file="common/head.jsp"%>
+        <%@ include file="common/head.jsp" %>
+        <%@ include file="common/api.jsp"%>
 
     <%-- Full Calendar --%>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 
+    <%-- 주소 검색 API --%>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/Employer.js"></script>
 
-    <title>Employer</title>
+    <title>타이틀</title>
 </head>
 <body>
 
@@ -52,14 +57,18 @@
                         <div class="col-12 col-lg-6">
                             <div class="list-group" id="list-tab" role="tablist">
                                 <a class="list-group-item list-group-item-action disabled">Company List</a>
-                                <a class="list-group-item list-group-item-action active" id="company1" data-bs-toggle="list" href="#company1-list" role="tab" aria-controls="company1">Company1</a>
-                                <a class="list-group-item list-group-item-action" id="company2" data-bs-toggle="list" href="#company2-list" role="tab" aria-controls="company2">Company2</a>
-                                <a class="list-group-item list-group-item-action" id="company3" data-bs-toggle="list" href="#company3-list" role="tab" aria-controls="company3">Company3</a>
+                                <a class="list-group-item list-group-item-action active" id="company1"
+                                   data-bs-toggle="list" href="#company1-list" role="tab" aria-controls="company1">Company1</a>
+                                <a class="list-group-item list-group-item-action" id="company2" data-bs-toggle="list"
+                                   href="#company2-list" role="tab" aria-controls="company2">Company2</a>
+                                <a class="list-group-item list-group-item-action" id="company3" data-bs-toggle="list"
+                                   href="#company3-list" role="tab" aria-controls="company3">Company3</a>
                             </div>
                         </div>
                         <div class="col-12 col-lg-6 mt-3 mt-lg-0">
                             <div class="tab-content" id="employee-list">
-                                <div class="tab-pane fade show active" id="company1-list" role="tabpanel" aria-labelledby="company1">
+                                <div class="tab-pane fade show active" id="company1-list" role="tabpanel"
+                                     aria-labelledby="company1">
                                     <div class="list-group">
                                         <div class="list-group-item list-group-item-action disabled">
                                             Company1
@@ -76,7 +85,8 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="company2-list" role="tabpanel" aria-labelledby="company2">
+                                <div class="tab-pane fade" id="company2-list" role="tabpanel"
+                                     aria-labelledby="company2">
                                     <div class="list-group">
                                         <div class="list-group-item list-group-item-action disabled">
                                             Company2
@@ -93,7 +103,8 @@
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="company3-list" role="tabpanel" aria-labelledby="company3">
+                                <div class="tab-pane fade" id="company3-list" role="tabpanel"
+                                     aria-labelledby="company3">
                                     <div class="list-group">
                                         <div class="list-group-item list-group-item-action disabled">
                                             Company3
@@ -145,6 +156,109 @@
     <button id="inputModalTrigger" type="button" class="visually-hidden" data-bs-toggle="modal"
             data-bs-target="#inputModal"></button>
 
+    <%-- Modal : Company를 추가하기 위한 모달 --%>
+    <%-- 이름, 주기, 구인중 --%>
+    <div class="modal fade" id="createModal">
+        <div class="modal-dialog" role="list" style="top: 15%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Company</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="name" class="form-label fs-4">Name</label>
+                                <input type="text" class="form-control" id="name" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label mt-3 fs-4">Frequency(Per Month)</div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequency" id="frequency1"
+                                           value="WEEK" checked>
+                                    <label class="form-check-label" for="frequency1">
+                                        4 TIMES ( once a week )
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequency" id="frequency2"
+                                           value="TEN">
+                                    <label class="form-check-label" for="frequency2">
+                                        3 TIMES ( once every 10 days )
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequency" id="frequency3"
+                                           value="HALF">
+                                    <label class="form-check-label" for="frequency3">
+                                        2 TIMES ( once every 2 weeks )
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="frequency" id="frequency4"
+                                           value="MONTH">
+                                    <label class="form-check-label" for="frequency4">
+                                        1 TIMES ( once a month )
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label mt-3 fs-4">Recruitment status</div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="recruiting" checked>
+                                    <label class="form-check-label" for="recruiting">Recruiting</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label mt-3 fs-4">Location</div>
+                                <label for="address" class="form-label fs-5">Address &nbsp;&nbsp;<button type="button" id="addressBtn" class="btn btn-secondary fs-6">Search</button></label>
+                                <input type="text" class="form-control" id="address" autocomplete="off">
+
+                                <label for="detailAddress" class="form-label fs-5">Detailed Address</label>
+                                <input type="text" class="form-control" id="detailAddress" autocomplete="off">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="createBtn">Create</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-- Modal Trigger Button --%>
+    <button id="createModalTrigger" type="button" class="visually-hidden" data-bs-toggle="modal"
+            data-bs-target="#createModal"></button>
+
+    <%-- Modal : 방 생성하고 코드 보여주는 모달 --%>
+    <div class="modal fade" id="showCodeModal">
+        <div class="modal-dialog" role="list" style="top: 20%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Company Code</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Creating a Random Code ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%-- Modal Trigger Button --%>
+    <button id="showCodeModalTrigger" type="button" class="visually-hidden" data-bs-toggle="modal"
+            data-bs-target="#showCodeModal"></button>
+
     <%-- Info : 현재 총 어느 시간 알바를 했고 월급이 얼마고 지급일까지 얼마 남았는지 --%>
     <%-- 알바생이 알바 연결을 끊을 때, 알바평 작성 가능 --%>
     <section class="mx-auto mt-5" style="max-width: 992px">
@@ -165,7 +279,7 @@
     <section class="mx-auto mt-5" style="max-width: 992px">
         <div class="card" style="height: 300px">
             <div class="card-body">
-                <h4 class="card-title">Card title</h4>
+                <h4 class="card-title">한글</h4>
                 <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                     card's content.</p>

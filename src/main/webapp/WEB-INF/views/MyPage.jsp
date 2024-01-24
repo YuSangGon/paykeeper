@@ -5,6 +5,7 @@
   Time: 오후 2:06
   PayKeeper Website's My Page
 --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/importTag.jsp" %>
 <html lang="ko">
 <head>

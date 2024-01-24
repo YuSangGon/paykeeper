@@ -13,8 +13,14 @@ import java.time.format.DateTimeFormatter;
 @EntityListeners(value = AuditingEntityListener.class)
 public class BaseEntity {
 
-    @Column(insertable = false, updatable = false)
+    @Column(updatable = false)
     private LocalDateTime regDate;
+
+    private String address;
+
+    private double latitude;
+
+    private double longitude;
 
     @PrePersist
     public void initRegDate() {

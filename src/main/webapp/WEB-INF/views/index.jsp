@@ -9,11 +9,8 @@
 <html>
 <head>
     <title>JSP TEST</title>
-    JSP TEST : <%= "Hello World".toUpperCase() %>
-    <br>
-    Data that is send by server : ${data}
 </head>
 <body>
-
+    안녕하세요.
 </body>
 </html>

@@ -2,7 +2,9 @@ package com.project.pay.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -14,9 +16,10 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Entity
-@EntityListeners(value = AuditingEntityListener.class)
-public class Company {
+public class Company extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,23 +27,16 @@ public class Company {
     @Column(nullable = false)
     private String name;  // 직장 이름
 
-    @Column(insertable = false, updatable = false, unique = true)
+    @Column(updatable = false, unique = true)
     private String code;  // 방 생성 고유 번호
 
     @Enumerated(value = EnumType.STRING)
     private PayFrequency payFrequency;
 
-    @Column(insertable = false, updatable = false)
-    private LocalDateTime regDate;
-
     // 사장이 설정 가능
     // 알바를 구하고 있는지 => 구인 중인지 아닌지
     @ColumnDefault(value = "true")
     private boolean state;
-
-    @OneToOne
-    @JoinColumn(name = "company_id")
-    private Geolocation geolocation;
 
     // User : Company = N:M
     // 해당 방에 포함된 알바, 사장 목록을 알기 위함
@@ -69,14 +65,6 @@ public class Company {
 
     public void addVacations(Vacation... vacations) {
         Collections.addAll(this.vacations, vacations);
-    }
-
-    @PrePersist
-    public void initPrePersist() {
-        this.regDate = LocalDateTime.now();
-        this.regDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        
-        // code를 생성하는 로직
     }
 
 }

@@ -23,3 +23,5 @@ alter table p_user_companies drop foreign key FKcvkn40hole12foeefh37pa75c;
 alter table p_user_companies drop foreign key FK47kc2d25kvv1y7kir105uu53p;
 alter table Star drop foreign key FK4yjs7go1ysh0cdrg8kb2wj052;
 alter table Vacation drop foreign key FKj9uui8w4ke721ou8ixampc9ck;
+
+
