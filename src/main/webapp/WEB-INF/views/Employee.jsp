@@ -7,16 +7,26 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="common/importTag.jsp" %>
-<html lang="ko">
-<head>
-    <%@ include file="common/head.jsp"%>
-    <%@ include file="common/api.jsp"%>
+<!DOCTYPE html>
+<link>
+    <%@ include file="common/head.jsp" %>
+    <%@ include file="common/api.jsp" %>
 
     <%-- Full Calendar --%>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
 
+    <%-- Datepicker --%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-material-datetimepicker.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap-material-datetimepicker.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/Employee.js"></script>
+    <link rel="stylesheet" href="/css/fullCalendar.css"></link>
 
     <title>Employee</title>
 </head>
@@ -44,21 +54,24 @@
         <div class="modal-dialog" role="list" style="top: 20%">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Part Time list</h5>
+                    <h5>알바 목록</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-center align-items-center">
-                            Company 1
+                    <ul class="list-group text-center">
+                        <li class="list-group-item cursor-pointer active" id="list1">
+                            전체
                         </li>
-                        <li class="list-group-item d-flex justify-content-center align-items-center">
-                            Company 2
+                        <li class="list-group-item cursor-pointer" id="list2">
+                            설빙
                         </li>
-                        <li class="list-group-item d-flex justify-content-center align-items-center">
-                            Company 3
+                        <li class="list-group-item cursor-pointer" id="list3">
+                            하남돼지집
+                        </li>
+                        <li class="list-group-item cursor-pointer" id="list4">
+                            쿠팡 상하차
                         </li>
                     </ul>
                 </div>
@@ -66,17 +79,14 @@
         </div>
     </div>
 
-    <%-- Modal Trigger Button --%>
-    <button id="listModalTrigger" type="button" class="visually-hidden" data-bs-toggle="modal"
-            data-bs-target="#listModal"></button>
-
     <%-- Modal For Company List--%>
     <div class="modal fade" id="inputModal">
         <div class="modal-dialog" role="list" style="top: 10%">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">알바 시간 등록</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <button id="inputModalClose" type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close">
                         <span aria-hidden="true"></span>
                     </button>
                 </div>
@@ -84,15 +94,31 @@
                     <form>
                         <fieldset>
                             <div class="form-group">
-                                <label for="startAt" class="form-label mt-4">시작 시간</label>
-                                <input type="date" class="form-control" id="startAt" autocomplete="off">
+                                <label for="startAt" class="form-label mt-4 ">시작 시간</label>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">From</span>
+                                        <input type="text" class="form-control" id="startAt" autocomplete="off">
+                                        <span class="input-group-text"><i
+                                                class="fa-regular fa-calendar-days"></i></span>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="endAt" class="form-label mt-4">끝난 시간</label>
-                                <input type="date" class="form-control" id="endAt" autocomplete="off">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">&nbsp;&nbsp;To&nbsp;&nbsp;</span>
+                                        <input type="text" class="form-control" id="endAt" autocomplete="off">
+                                        <span class="input-group-text"><i
+                                                class="fa-regular fa-calendar-days"></i></span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-label mt-4">시급<small>현재 최저 시급 : 9780</small></label>
+                                <label class="form-label mt-4">시급<small style="font-size: 0.7em">(현재 최저 시급 :
+                                    9780)</small></label>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">시간 당</span>
@@ -107,7 +133,7 @@
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group mb-3">
-                                            <span class="input-group-text">총</span>
+                                            <span class="input-group-text">약</span>
                                             <input type="text" id="totalPay" class="form-control"
                                                    aria-label="Total Payment" disabled>
                                             <span class="input-group-text">원</span>
@@ -119,16 +145,37 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="jobSave" type="button" class="btn btn-primary">저장</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <%-- Modal Trigger Button --%>
-    <button id="inputModalTrigger" type="button" class="visually-hidden" data-bs-toggle="modal"
-            data-bs-target="#inputModal"></button>
+    <%-- Modal For Company List--%>
+    <div class="modal fade" id="addCompany">
+        <div class="modal-dialog" role="list" style="top: 20%">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>알바 추가</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>사장님에게 받은 코드 6자리를 입력하세요.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" id="codeForAdd" class="form-control"
+                               aria-label="Validation Code" maxlength="6">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="companySave" type="button" class="btn btn-primary">추가</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <%-- Info : 현재 총 어느 시간 알바를 했고 월급이 얼마고 지급일까지 얼마 남았는지 --%>
     <section class="mx-auto mt-5" style="max-width: 992px">
