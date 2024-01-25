@@ -26,7 +26,7 @@
 
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/Employee.js"></script>
-    <link rel="stylesheet" href="/css/fullCalendar.css"></link>
+    <link rel="stylesheet" href="/css/fullCalendar.css">
 
     <title>Employee</title>
 </head>

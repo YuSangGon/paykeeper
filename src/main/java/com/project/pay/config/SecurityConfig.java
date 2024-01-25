@@ -18,14 +18,14 @@ public class SecurityConfig {
 //        return httpSecurity
 //                .csrf(csrf-> csrf.disable())
 //                .formLogin(form -> form
-//                        .loginPage("/user/login")   // 로그인이 필요할 경우, 해당 페이지로 넘어감
-//                        .loginProcessingUrl("/user/login")
+//                        .loginPage("/login")   // 로그인이 필요할 경우, 해당 페이지로 넘어감
+//                        .loginProcessingUrl("/login")
 //                        .defaultSuccessUrl("/")   // 로그인 성공시, 지정한 url이 없으면 해당 url로 넘어감
 //                        .successHandler(new CustomLoginSuccessHandler("/"))  // 로그인 성공 시 핸들러
 //                        .failureHandler(new CustomLoginFailureHandler())  // 로그인 실패시 핸들러
 //                )
 //                .logout(logout -> logout
-//                        .logoutUrl("/user/logout")   // 로그아웃 요청시 넘어가는 페이지
+//                        .logoutUrl("/logout")   // 로그아웃 요청시 넘어가는 페이지
 //                        .logoutSuccessUrl("/")    // 로그 아웃 성공 시 넘어가는 페이지
 //                )
 //                .build();

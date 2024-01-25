@@ -20,6 +20,7 @@
 
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/Employer.js"></script>
+    <link rel="stylesheet" href="/css/fullCalendar.css">
 
     <title>사장</title>
 </head>

@@ -4,10 +4,14 @@ $(function () {
     var calendarEl = document.getElementById('calendar');
 
     calendar = new FullCalendar.Calendar(calendarEl, {
+        timeZone: 'KST',
         headerToolbar: {
-            left: 'list add',
+            left: 'prev',
             center: 'title',
-            right: 'today prev next',
+            right: 'next',
+        },
+        footerToolbar: {
+            left: "list add",
         },
         customButtons: {
             list: {  // 회사 목록
@@ -23,6 +27,11 @@ $(function () {
         dateClick: function (info) {
             $('#inputModalTrigger').trigger('click');
         },
+        editable: false,
+        dayMaxEvents: 3,
+        locale: 'ko',
+        expandRows: true,
+        navLinks: false,
     });
 
     calendar.render();
@@ -50,15 +59,15 @@ $(function () {
 
 const listUp = () => {
     // alert("clicked!!");
-    $('#listModalTrigger').trigger('click');
+    $('#listModal').modal('show');
 }
 
 const addCompany = () => {
-    $('#createModalTrigger').trigger('click');
+    $('#createModal').modal('show');
 
     $('#createBtn').off().click(function () {
-        $(this).siblings('button').trigger('click');
-        $('#showCodeModalTrigger').trigger('click');
+        $('#createModal').modal('hidden');
+        $('#showCodeModal').modal('show');
         searchGeocoder($('#address').val())
     })
 }
