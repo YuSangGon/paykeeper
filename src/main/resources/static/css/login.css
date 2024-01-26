@@ -1,0 +1,48 @@
+#iconLogin > img {
+    width: 40px;
+    height: 40px;
+
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+#orLine {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0,0,0, 0.35);
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+#orLine:before {
+    content: "";
+    flex-grow: 1;
+    margin: 0 16px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+}
+
+#orLine:after {
+    content: "";
+    flex-grow: 1;
+    margin: 0 16px;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+}
+
+img {
+    cursor: pointer;
+}
+
+.fb-button-main-element {
+    height: 45px;
+}
+
+.fb_button_label_element {
+    content: "Facebook으로 로그인";
+}
