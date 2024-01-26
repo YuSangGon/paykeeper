@@ -6,10 +6,10 @@
   PayKeeper Website's Login
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="common/importTag.jsp" %>
+<%@ include file="../common/importTag.jsp" %>
 <html lang="ko">
 <head>
-    <%@ include file="common/head.jsp" %>
+    <%@ include file="../common/head.jsp" %>
 
     <%-- Impoert Other CSS or JS --%>
     <script src="/js/login.js"></script>
@@ -46,7 +46,7 @@
                                 <button class="btn btn-lg btn-primary" type="button" onclick="location.href='/register'">회원가입</button>
                             </div>
                             <p class="text-center">
-                                <span style="font-size: 0.8em">비밀번호를 잊으셨다면? <a class="text-danger" href="#"
+                                <span style="font-size: 0.8em">비밀번호를 잊으셨다면? <a class="text-danger" href="/checkEmailForPW"
                                                                                style="font-size: 0.8em">비밀번호찾기</a> </span>
                             </p>
                         </div>

@@ -10,7 +10,7 @@ public class UserController {
 
     @RequestMapping("/login")
     public String login() {
-        return "login";
+        return "user/login";
     }
 
     @RequestMapping("/logout")
@@ -21,7 +21,12 @@ public class UserController {
 
     @RequestMapping("/register")
     public String register() {
-        return "register";
+        return "user/register";
+    }
+
+    @RequestMapping("/checkEmailForPW")
+    public String forgot() {
+        return "user/checkEmailForPW";
     }
 
 }

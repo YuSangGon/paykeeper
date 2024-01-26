@@ -6,10 +6,10 @@
   Select Employer or Employee For Register
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/importTag.jsp" %>
+<%@ include file="../common/importTag.jsp" %>
 <html lang="ko">
 <head>
-    <%@ include file="common/head.jsp" %>
+    <%@ include file="../common/head.jsp" %>
 
     <%-- Impoert Other CSS or JS --%>
     <link rel="stylesheet" href="/css/register.css">
@@ -119,7 +119,7 @@
 
                             <div class="d-grid gap-2 my-3">
                                 <button class="btn btn-success" type="button">가입하기</button>
-                                <button class="btn btn-primary" type="button">Login</button>
+                                <button class="btn btn-primary" type="button" onclick="location.href='/login'">Login하러가기</button>
                             </div>
                         </div>
                     </div>
