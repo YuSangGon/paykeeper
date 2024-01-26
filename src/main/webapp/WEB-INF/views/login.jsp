@@ -43,7 +43,7 @@
                             </div>
                             <div class="d-grid gap-2 my-3">
                                 <button class="btn btn-lg btn-success" type="button">Login</button>
-                                <button class="btn btn-lg btn-primary" type="button">회원가입</button>
+                                <button class="btn btn-lg btn-primary" type="button" onclick="location.href='/register'">회원가입</button>
                             </div>
                             <p class="text-center">
                                 <span style="font-size: 0.8em">비밀번호를 잊으셨다면? <a class="text-danger" href="#"
