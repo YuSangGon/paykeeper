@@ -25,8 +25,13 @@ public class UserController {
     }
 
     @RequestMapping("/checkEmailForPW")
-    public String forgot() {
+    public String checkEmailForPW() {
         return "user/checkEmailForPW";
+    }
+
+    @RequestMapping("/setNewPW")
+    public String setNewPW() {
+        return "user/setNewPW";
     }
 
 }

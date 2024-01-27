@@ -3,7 +3,9 @@
   User: yusan
   Date: 2024-01-25
   Time: 오후 3:42
-  Select Employer or Employee For Register
+  Email validation page for checking if user has authority before setting new password.
+  This validation has valid period(5 minutes).
+  If this validation is expired, user have to do it again
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../common/importTag.jsp" %>
