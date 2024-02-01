@@ -57,6 +57,12 @@
                                         </button>
                                     </td>
                                 </tr>
+                                <tr class="d-none" id="possibleID">
+                                    <td colspan="3" class="col-12 text-success">사용가능 아이디 입니다.</td>
+                                </tr>
+                                <tr class="d-none" id="impossibleID">
+                                    <td colspan="3" class="col-12 text-danger">중복된 아이디 입니다.</td>
+                                </tr>
                                 <tr>
                                     <td class="col-3">비밀번호</td>
                                     <td class="col-6">
@@ -71,6 +77,10 @@
                                         <input type="password" class="form-control" placeholder="비밀번호를 한번 더 입력하세요."
                                                aria-label="Input RePassword"
                                                id="repassword" name="repassword">
+                                    </td>
+                                    <td class="col-3 text-center fs-4">
+                                        <span class="d-none text-success" id="isEqual"><i class="fa-solid fa-check"></i></span>
+                                        <span class="d-none text-danger" id="isNotEqual"><i class="fa-solid fa-xmark"></i></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -103,8 +113,8 @@
                                         </button>
                                     </td>
                                 </tr>
-                                <tr class="d-none">
-                                    <td class="col-3">이메일</td>
+                                <tr class="d-none" id="inputCodeForEmail">
+                                    <td class="col-3">인증코드</td>
                                     <td class="col-6">
                                         <input type="text" class="form-control" placeholder="인증코드를 입력하세요"
                                                aria-label="Input Code"
